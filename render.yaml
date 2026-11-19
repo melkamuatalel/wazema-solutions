@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: wazema-solutions
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: NODE_ENV=production node server/index.js
+    envVars:
+      - key: PORT
+        value: 10000

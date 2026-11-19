@@ -1,0 +1,26 @@
+[
+  {
+    "id": "WZ-INQ-7779",
+    "createdAt": "2026-11-19T20:46:57.779Z",
+    "fullName": "Prospective Partner Rep",
+    "phone": "+251911002233",
+    "email": "",
+    "meetingType": "In-Person (Addis Ababa)",
+    "locationArea": "Bole Medhanialem",
+    "projectScope": "Custom Software Development",
+    "notes": "Representative is in Addis to review Wazema portfolio and sign agreement.",
+    "status": "new_request"
+  },
+  {
+    "id": "WZ-INQ-101",
+    "createdAt": "2026-11-19T10:00:00.000Z",
+    "fullName": "Client Partner Representative",
+    "phone": "+251 911 23 45 67",
+    "email": "partner@example.com",
+    "meetingType": "In-Person (Addis Ababa)",
+    "locationArea": "Bole Medhanialem",
+    "projectScope": "Custom ERP & Mobile System Integration",
+    "notes": "Requesting in-person meeting in Addis Ababa to review demo and sign project agreement.",
+    "status": "pending_meeting"
+  }
+]
