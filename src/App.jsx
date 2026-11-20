@@ -1070,10 +1070,10 @@ export default function App() {
                 <div>
                   <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">GOVERNMENT ERP</span>
                   <h3 className="font-extrabold text-white text-lg mt-1">Ethiopian IT Park — 18-Stage AI Procurement Simulator</h3>
-                  <p className="text-xs text-slate-400 mt-1">Full statutory procurement lifecycle from PR requisition to 3-Way Match payment reconciliation.</p>
+                  <p className="text-xs text-slate-400 mt-1">Full procurement lifecycle from PR requisition to 3-Way Match payment reconciliation.</p>
                 </div>
                 <div className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-3 py-1.5 rounded-lg border border-emerald-500/30">
-                  STATUTORY COMPLIANCE: 100%
+                  AUDIT COMPLIANCE: 100%
                 </div>
               </div>
 
@@ -1392,9 +1392,9 @@ export default function App() {
 
                 <div className="lg:col-span-5 bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
                   <div>
-                    <h4 className="font-bold text-white text-sm">Regulatory & Security Architecture</h4>
+                    <h4 className="font-bold text-white text-sm">Security & Interoperability Architecture</h4>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                      Compliant with National Bank of Ethiopia (NBE) payment directive, ISO 8583 message formatting, and HSM hardware security modules.
+                      Built for National Bank of Ethiopia (NBE) payment guidelines, standard financial messaging, and high-throughput transaction encryption.
                     </p>
                   </div>
                   <div className="mt-6">

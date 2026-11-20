@@ -83,7 +83,7 @@ const flagshipSystems = [
     badge: 'GOV ERP',
     image: itParkBase64,
     impact: 'ETB 45.7M Planned Portfolio • 45 User Departments • 3 Bidding Tracks (NCB/ICB/RFQ)',
-    summary: 'Statutory 18-stage public procurement lifecycle from departmental requisition (PR) to 3-way match payment audit, built to comply with federal procurement regulations.',
+    summary: 'Enterprise 18-stage procurement lifecycle from departmental requisition (PR) to 3-way match payment audit, built for total budget accountability.',
     deliverables: [
       'Automated Annual Procurement Plans (APP) with department demand windows',
       'Sealed digital bid box with cryptographic timestamping for fair supplier tenders',
@@ -781,10 +781,10 @@ const htmlContent = `<!DOCTYPE html>
         <span class="doc-pill">Official Executive Capability Statement & 30-System Prospectus</span>
         <h1 class="main-title">WAZEMA SOLUTIONS PLC</h1>
         <div class="amharic-sub">ዋዜማ ሶሉሽንስ — የቴክኖሎጂ እና የሶፍትዌር ኢንጂነሪንግ ኩባንያ</div>
-        <p class="tagline">Enterprise Cloud Architecture • High-Concurrency Mobile Suites • Multi-Rail FinTech • Statutory ERPs</p>
+        <p class="tagline">Enterprise Cloud Architecture • High-Concurrency Mobile Suites • Multi-Rail FinTech • Custom ERPs</p>
 
         <div class="contact-pills">
-          <span class="contact-pill">📍 Addis Ababa HQ (Bole Medhanialem Corridor)</span>
+          <span class="contact-pill">📍 Addis Ababa, Ethiopia</span>
           <span class="contact-pill">📞 Direct Hotline: +251 95 386 8816</span>
           <span class="contact-pill">✉️ contact@wazemasolutions.com</span>
           <span class="contact-pill">🌐 wazema-solutions.vercel.app</span>
@@ -808,9 +808,9 @@ const htmlContent = `<!DOCTYPE html>
             <div class="metric-desc">UK, USA, East Africa & Ethiopia</div>
           </div>
           <div class="metric-card highlight">
-            <div class="metric-label">Compliance Status</div>
-            <div class="metric-val">ISO & Statutory</div>
-            <div class="metric-desc">FinTech Switch & Gov ERP Ready</div>
+            <div class="metric-label">Client IP Handover</div>
+            <div class="metric-val">100% Owned</div>
+            <div class="metric-desc">Full Source Code & Architecture Rights</div>
           </div>
         </div>
       </div>
@@ -831,7 +831,7 @@ const htmlContent = `<!DOCTYPE html>
           <span class="sec-sub">Delivering Mission-Critical Enterprise Platforms</span>
         </div>
         <p class="prose-text">
-          <strong>Wazema Solutions PLC</strong> is a premier software engineering and enterprise digital systems firm headquartered in Addis Ababa, Ethiopia. We architect, engineer, and deploy high-concurrency systems, cross-platform mobile ecosystems for competitive international markets (including official DVSA-licensed theory suites in the United Kingdom), statutory government procurement and enterprise resource planning (ERP) suites, and full-stack contactless restaurant platforms. Every system in our portfolio is engineered for zero-compromise security, real-time throughput, and audited regulatory compliance.
+          <strong>Wazema Solutions PLC</strong> is a high-growth software engineering and enterprise digital systems consultancy based in Addis Ababa, Ethiopia. We architect, engineer, and deploy high-concurrency systems, cross-platform mobile ecosystems for competitive international markets (including official DVSA-licensed theory suites in the United Kingdom), custom enterprise resource planning (ERP) suites, and full-stack contactless restaurant platforms. Every system in our portfolio is engineered for production reliability, real-time throughput, and scalable performance.
         </p>
       </div>
 
@@ -854,15 +854,15 @@ const htmlContent = `<!DOCTYPE html>
             <div class="pillar-desc">Direct API routing across Telebirr, CBE Birr, Chapa, Awash Bank, and international card rails with sub-second response times, automated ledger reconciliation, and fraud prevention.</div>
           </div>
           <div class="pillar-box">
-            <div class="pillar-title">🏭 Statutory ERP, Barcode & IoT Telemetry</div>
-            <div class="pillar-desc">18-stage public procurement workflows, serialized barcode inventory, GPS trans-corridor trailer telemetry, and industrial factory yield accounting matching international audit standards.</div>
+            <div class="pillar-title">🏭 Custom ERP, Supply Chain & IoT Telemetry</div>
+            <div class="pillar-desc">Multi-department procurement workflows, serialized barcode inventory, GPS cross-corridor fleet telemetry, and industrial factory yield accounting built for operational efficiency.</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="running-footer">
-      <span>Wazema Solutions PLC • Headquarters: Bole Medhanialem Corridor, Addis Ababa</span>
+      <span>Wazema Solutions PLC • Addis Ababa, Ethiopia</span>
       <span>Direct Hotline: +251 95 386 8816 • Page 1 of 4</span>
     </div>
   </div>
@@ -1048,13 +1048,13 @@ const htmlContent = `<!DOCTYPE html>
         <div class="cta-contacts">
           <div class="cta-hotline">📞 +251 95 386 8816</div>
           <div class="cta-email">✉️ contact@wazemasolutions.com</div>
-          <div class="cta-loc">📍 Bole Medhanialem Corridor, Addis Ababa, Ethiopia</div>
+          <div class="cta-loc">📍 Addis Ababa, Ethiopia (Meetings by Appointment)</div>
         </div>
       </div>
     </div>
 
     <div class="running-footer">
-      <span>Wazema Solutions PLC • Addis Ababa Trade Bureau & MInT Recognized Enterprise</span>
+      <span>Wazema Solutions PLC • Software Engineering & Cloud Platforms</span>
       <span>Direct Hotline: +251 95 386 8816 • Page 4 of 4</span>
     </div>
   </div>

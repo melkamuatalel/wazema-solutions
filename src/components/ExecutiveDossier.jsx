@@ -44,7 +44,7 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
     { key: 'hospitality', label: 'Hospitality, Dining & Contactless Systems' },
     { key: 'mobile', label: 'Cross-Platform Mobile Suites & Apps' },
     { key: 'fintech', label: 'FinTech, Banking Switches & Payment Systems' },
-    { key: 'erp', label: 'Statutory ERP, Supply Chain & Industrial Systems' },
+    { key: 'erp', label: 'Enterprise ERP, Supply Chain & Industrial Systems' },
     { key: 'health', label: 'Healthcare, Clinical EHR & Diagnostics' },
     { key: 'education', label: 'Higher Education, CMS & Exam Engines' },
     { key: 'engineering', label: 'Heavy Infrastructure, IoT Telemetry & GIS' },
@@ -74,12 +74,12 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
             ዋዜማ ሶሉሽንስ — የቴክኖሎጂ እና የሶፍትዌር ኢንጂነሪንግ ኩባንያ
           </p>
           <p className="text-xs text-slate-600 max-w-2xl mt-1.5 font-medium">
-            Enterprise Cloud Architecture • High-Concurrency Mobile Suites • Multi-Rail FinTech • Statutory ERPs
+            Enterprise Cloud Architecture • High-Concurrency Mobile Suites • Multi-Rail FinTech • Custom ERPs
           </p>
 
           <div className="mt-4 flex flex-wrap justify-center gap-2 sm:gap-4 text-[11px] font-semibold text-slate-700">
             <span className="px-3 py-1 rounded-md bg-slate-100 border border-slate-300 flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-emerald-600" /> Addis Ababa HQ (Bole Medhanialem Corridor)
+              <MapPin className="w-3.5 h-3.5 text-emerald-600" /> Addis Ababa, Ethiopia
             </span>
             <span className="px-3 py-1 rounded-md bg-slate-100 border border-slate-300 flex items-center gap-1.5">
               <Phone className="w-3.5 h-3.5 text-emerald-600" /> +251 95 386 8816
@@ -110,9 +110,9 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
               <div className="text-[10px] text-slate-600">UK, USA, East Africa & Ethiopia</div>
             </div>
             <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
-              <div className="text-[10px] uppercase font-bold text-emerald-800">Compliance</div>
-              <div className="text-xl font-black text-slate-950">ISO & Statutory</div>
-              <div className="text-[10px] text-slate-600">FinTech Switch & Gov ERP Ready</div>
+              <div className="text-[10px] uppercase font-bold text-emerald-800">Client IP Rights</div>
+              <div className="text-xl font-black text-slate-950">100% Owned</div>
+              <div className="text-[10px] text-slate-600">Full Source Code & Architecture Rights</div>
             </div>
           </div>
 
@@ -151,7 +151,7 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
           1. Executive Capability Statement & Engineering Authority
         </h2>
         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">
-          <strong>Wazema Solutions PLC</strong> is a premier software engineering and enterprise digital systems firm headquartered in Addis Ababa, Ethiopia. We architect, engineer, and deploy high-concurrency systems, cross-platform mobile ecosystems for competitive international markets (including official DVSA-licensed theory suites in the United Kingdom), statutory government procurement and enterprise resource planning (ERP) suites, and full-stack contactless restaurant platforms. Every system in our portfolio is engineered for zero-compromise security, real-time throughput, and audited regulatory compliance.
+          <strong>Wazema Solutions PLC</strong> is a high-growth software engineering and enterprise digital systems consultancy based in Addis Ababa, Ethiopia. We architect, engineer, and deploy high-concurrency systems, cross-platform mobile ecosystems for competitive international markets (including official DVSA-licensed theory suites in the United Kingdom), custom enterprise resource planning (ERP) suites, and full-stack contactless restaurant platforms. Every system in our portfolio is engineered for production reliability, real-time throughput, and scalable performance.
         </p>
 
         {/* 4 Pillars Grid */}
@@ -189,10 +189,10 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
           <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50">
             <div className="flex items-center gap-2 text-slate-950 font-bold text-xs mb-1">
               <Cpu className="w-4 h-4 text-emerald-600" />
-              <span>Statutory ERP, Barcode & IoT Telemetry</span>
+              <span>Custom ERP, Supply Chain & IoT Telemetry</span>
             </div>
             <p className="text-[11px] text-slate-600 leading-normal">
-              18-stage public procurement workflows, serialized barcode inventory, GPS trans-corridor trailer telemetry, and industrial factory yield accounting matching international audit standards.
+              Multi-department procurement workflows, serialized barcode inventory, GPS cross-corridor fleet telemetry, and industrial factory yield accounting built for operational efficiency.
             </p>
           </div>
         </div>
@@ -460,7 +460,7 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
                 Initiate Your Enterprise Solution Today
               </h3>
               <p className="text-xs text-slate-300 max-w-lg">
-                Book a direct scoping session or in-person boardroom demonstration at our Addis Ababa headquarters or schedule a remote session.
+                Book a direct scoping session in Addis Ababa (by appointment) or schedule a remote video conference session.
               </p>
             </div>
 
@@ -483,9 +483,9 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
           </div>
 
           <div className="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] text-slate-400">
-            <span>Corporate Registration: Addis Ababa Trade Bureau & MInT Recognized</span>
+            <span>Engineering Hub: Addis Ababa, Ethiopia</span>
             <span>All System Source Codes, Intellectual Property & Schemas 100% Client Owned</span>
-            <span>Confidential Boardroom Document • Wazema Solutions PLC © 2026</span>
+            <span>Confidential Dossier • Wazema Solutions PLC © 2026</span>
           </div>
         </div>
       </div>
