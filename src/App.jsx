@@ -1505,7 +1505,7 @@ export default function App() {
                 30 Delivered Systems Across Enterprise Sectors
               </h2>
               <p className="text-base text-slate-400 mt-2 max-w-2xl">
-                Every system built and deployed by Wazema Solutions represents enterprise stability, clean code, and verifiable commercial impact.
+                Custom software systems engineered and deployed by Wazema Solutions for enterprise partners and institutional clients.
               </p>
             </div>
 
@@ -1515,6 +1515,30 @@ export default function App() {
                 {filteredPortfolio.length} of 30 Systems Shown
               </span>
             </div>
+          </div>
+
+          {/* Client Work & Engineering Authorship Banner */}
+          <div className="mb-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-950/60 via-slate-900/80 to-slate-900/60 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                <Shield className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                  <span>Client-Commissioned & Custom Delivered Software</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">100% Client Owned</span>
+                </h4>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  The systems below were built by Wazema Solutions under bespoke development contracts for partner organizations. Each operates under the client's proprietary brand and secure private cloud.
+                </p>
+              </div>
+            </div>
+            <a
+              href="#meeting"
+              className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold whitespace-nowrap shrink-0 transition"
+            >
+              Request Working Demo
+            </a>
           </div>
 
           {/* Search & Categories Bar */}
