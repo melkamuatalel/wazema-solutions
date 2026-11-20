@@ -55,7 +55,7 @@ app.get('/api/portfolio', (_req, res) => {
       taglineAm: 'የኮርፖሬት ሶፍትዌር፣ የሞባይል አፕሊኬሽኖች እና የክላውድ ሲስተሞች',
       headquarters: 'Addis Ababa, Ethiopia',
       phone: '+251 95 386 8816',
-      email: 'contact@wazemasolutions.com',
+      email: 'wazemasolutions@gmail.com',
       logo: '/images/wazema_logo.jpg',
       stats: {
         projectsCount: WAZEMA_PORTFOLIO.length,

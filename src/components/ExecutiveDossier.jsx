@@ -85,7 +85,7 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
               <Phone className="w-3.5 h-3.5 text-emerald-600" /> +251 95 386 8816
             </span>
             <span className="px-3 py-1 rounded-md bg-slate-100 border border-slate-300 flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-emerald-600" /> contact@wazemasolutions.com
+              <Mail className="w-3.5 h-3.5 text-emerald-600" /> wazemasolutions@gmail.com
             </span>
             <span className="px-3 py-1 rounded-md bg-slate-100 border border-slate-300 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5 text-emerald-600" /> wazema-solutions.vercel.app
@@ -473,11 +473,11 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
                 <span>Call +251 95 386 8816</span>
               </a>
               <a
-                href="mailto:contact@wazemasolutions.com"
+                href="mailto:wazemasolutions@gmail.com"
                 className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-2 border border-slate-700 transition"
               >
                 <Mail className="w-4 h-4 text-emerald-400" />
-                <span>contact@wazemasolutions.com</span>
+                <span>wazemasolutions@gmail.com</span>
               </a>
             </div>
           </div>

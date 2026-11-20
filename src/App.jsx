@@ -1716,8 +1716,8 @@ export default function App() {
                   </div>
                   <div>
                     <span className="font-bold text-white block">Corporate Correspondence:</span>
-                    <a href="mailto:contact@wazemasolutions.com" className="text-emerald-400 font-bold hover:underline">
-                      contact@wazemasolutions.com
+                    <a href="mailto:wazemasolutions@gmail.com" className="text-emerald-400 font-bold hover:underline">
+                      wazemasolutions@gmail.com
                     </a>
                   </div>
                 </div>
@@ -2213,8 +2213,8 @@ export default function App() {
           <div className="text-center md:text-right">
             <p className="text-slate-300 font-medium">
               Corporate Inquiries:{' '}
-              <a href="mailto:contact@wazemasolutions.com" className="text-emerald-400 hover:underline">
-                contact@wazemasolutions.com
+              <a href="mailto:wazemasolutions@gmail.com" className="text-emerald-400 hover:underline">
+                wazemasolutions@gmail.com
               </a>{' '}
               |{' '}
               <a href="tel:+251953868816" className="text-emerald-400 font-bold hover:underline">

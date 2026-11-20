@@ -786,7 +786,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="contact-pills">
           <span class="contact-pill">📍 Addis Ababa, Ethiopia</span>
           <span class="contact-pill">📞 Direct Hotline: +251 95 386 8816</span>
-          <span class="contact-pill">✉️ contact@wazemasolutions.com</span>
+          <span class="contact-pill">✉️ wazemasolutions@gmail.com</span>
           <span class="contact-pill">🌐 wazema-solutions.vercel.app</span>
         </div>
 
@@ -1047,7 +1047,7 @@ const htmlContent = `<!DOCTYPE html>
         </div>
         <div class="cta-contacts">
           <div class="cta-hotline">📞 +251 95 386 8816</div>
-          <div class="cta-email">✉️ contact@wazemasolutions.com</div>
+          <div class="cta-email">✉️ wazemasolutions@gmail.com</div>
           <div class="cta-loc">📍 Addis Ababa, Ethiopia (Meetings by Appointment)</div>
         </div>
       </div>
