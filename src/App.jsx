@@ -43,6 +43,7 @@ import {
 } from 'lucide-react';
 import { WAZEMA_PORTFOLIO, CLIENT_TESTIMONIALS } from '../server/data.js';
 import ExecutiveDossier from './components/ExecutiveDossier.jsx';
+import DineQREnterpriseSuite from './components/DineQREnterpriseSuite.jsx';
 
 export default function App() {
   const [portfolio, setPortfolio] = useState(WAZEMA_PORTFOLIO);
@@ -399,6 +400,14 @@ export default function App() {
 
           {/* Nav Items */}
           <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+            <a
+              href="#dine-qr"
+              onClick={() => setActiveHubTab('dine-qr')}
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold hover:bg-emerald-500/25 transition shadow-sm"
+            >
+              <Utensils className="w-3.5 h-3.5 text-emerald-400" />
+              <span>DineQR™ Restaurant Suite</span>
+            </a>
             <a href="#systems" className="hover:text-emerald-400 transition">30 Delivered Systems</a>
             <a href="#testimonials" className="hover:text-emerald-400 transition">Client Verification</a>
             <a href="#meeting" className="hover:text-emerald-400 transition">Schedule Consultation</a>
@@ -525,8 +534,9 @@ export default function App() {
       </section>
 
       {/* ======================================================== */}
-      {/* SECTION ID: live-demos — WAZEMA CYBER COMMAND HUB */}
+      {/* SECTION ID: dine-qr & live-demos — WAZEMA CYBER COMMAND HUB */}
       {/* ======================================================== */}
+      <div id="dine-qr" className="-mt-24 pt-24" />
       <section id="live-demos" className="py-16 sm:py-20 bg-gradient-to-b from-[#030611] via-[#061226] to-[#030611] border-b border-emerald-900/40 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -581,355 +591,8 @@ export default function App() {
             ))}
           </div>
 
-          {/* TAB 1: DINE-QR SIMULATOR */}
-          {activeHubTab === 'dine-qr' && (
-            <div className="bg-slate-900/90 rounded-2xl border border-slate-700/80 overflow-hidden shadow-2xl">
-              {/* Top Bar */}
-              <div className="bg-slate-950 px-6 py-3.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-3 w-3 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                  </span>
-                  <span className="font-bold text-sm text-white">LIVE RESTAURANT SESSION:</span>
-                  <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded border border-emerald-500/20 font-mono">
-                    {dineTable}
-                  </span>
-                </div>
-
-                {/* Mode Switcher */}
-                <div className="flex items-center bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs font-semibold">
-                  <button
-                    onClick={() => setDineViewMode('customer')}
-                    className={`px-3 py-1.5 rounded-md transition ${dineViewMode === 'customer' ? 'bg-emerald-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
-                  >
-                    📱 Customer Menu View
-                  </button>
-                  <button
-                    onClick={() => setDineViewMode('kitchen')}
-                    className={`px-3 py-1.5 rounded-md transition ${dineViewMode === 'kitchen' ? 'bg-emerald-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
-                  >
-                    👨‍🍳 Kitchen Display (KDS) ({dineOrders.length})
-                  </button>
-                  <button
-                    onClick={() => setDineViewMode('bill')}
-                    className={`px-3 py-1.5 rounded-md transition ${dineViewMode === 'bill' ? 'bg-emerald-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
-                  >
-                    🧾 Bill & Telebirr QR
-                  </button>
-                </div>
-              </div>
-
-              {/* Mode: Customer */}
-              {dineViewMode === 'customer' && (
-                <div className="p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  {/* Menu Column */}
-                  <div className="lg:col-span-8">
-                    {/* Category Tabs */}
-                    <div className="flex items-center gap-2 overflow-x-auto pb-3 border-b border-slate-800 text-xs font-medium">
-                      {['mains', 'burgers', 'drinks', 'desserts'].map((cat) => (
-                        <button
-                          key={cat}
-                          onClick={() => setDineCategory(cat)}
-                          className={`px-3.5 py-2 rounded-lg capitalize whitespace-nowrap transition ${dineCategory === cat ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold' : 'bg-slate-800/60 text-slate-400 hover:text-white'}`}
-                        >
-                          {cat === 'mains' && '🍖 Traditional Ethiopian & Steaks'}
-                          {cat === 'burgers' && '🍔 Gourmet Burgers & Bites'}
-                          {cat === 'drinks' && '🍹 Cocktails & Fresh Smoothies'}
-                          {cat === 'desserts' && '☕ Yirgacheffe Coffee & Pastry'}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Menu Items Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                      {menuItems
-                        .filter((item) => item.cat === dineCategory)
-                        .map((item) => (
-                          <div
-                            key={item.id}
-                            className="bg-slate-950/70 p-4 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition flex flex-col justify-between"
-                          >
-                            <div>
-                              <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                                  {item.tag}
-                                </span>
-                                <span className="text-xs text-slate-400">{item.prep}</span>
-                              </div>
-                              <h4 className="font-bold text-white text-base mt-2">{item.name}</h4>
-                              <p className="text-xs text-slate-400 mt-1">{item.nameEn}</p>
-                            </div>
-
-                            <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-800/80">
-                              <span className="text-emerald-400 font-extrabold text-base">ETB {item.price}</span>
-                              <button
-                                onClick={() => addToDineCart(item)}
-                                className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white flex items-center gap-1 transition"
-                              >
-                                + Add to Order
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-
-                    {/* Table Service Action bar */}
-                    <div className="mt-6 p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-wrap items-center justify-between gap-3">
-                      <div className="flex items-center gap-2 text-xs text-slate-300">
-                        <span className="font-semibold text-white">Need Attention?</span>
-                        <span>Diners can page service directly from their phone.</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <button
-                          onClick={() => showToast('🔔 Paged: Waiter has received your call at Table 4!')}
-                          className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition"
-                        >
-                          🔔 Call Waiter
-                        </button>
-                        <button
-                          onClick={() => {
-                            showToast('🧾 Cashier notified for bill print at Table 4.');
-                            setDineViewMode('bill');
-                          }}
-                          className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 transition"
-                        >
-                          🧾 Request Bill
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Cart & Order Column */}
-                  <div className="lg:col-span-4 bg-slate-950/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                        <div className="flex items-center gap-2">
-                          <Utensils className="w-4 h-4 text-emerald-400" />
-                          <h4 className="font-bold text-white text-sm">Table Order Slip</h4>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">
-                            {dineCart.length} items
-                          </span>
-                          {dineCart.length > 0 && (
-                            <button
-                              onClick={() => setDineCart([])}
-                              className="text-[11px] text-slate-500 hover:text-red-400 font-medium transition"
-                            >
-                              Clear
-                            </button>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Cart Items */}
-                      <div className="mt-4 space-y-3 max-h-60 overflow-y-auto pr-1">
-                        {dineCart.length === 0 ? (
-                          <p className="text-xs text-slate-500 py-6 text-center">Your order is empty. Click "+ Add to Order" on dishes above to simulate.</p>
-                        ) : (
-                          dineCart.map((item) => (
-                            <div key={item.id} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-xs">
-                              <div className="flex items-center justify-between">
-                                <span className="font-bold text-white">{item.name}</span>
-                                <button
-                                  onClick={() => removeFromDineCart(item.id)}
-                                  className="text-slate-500 hover:text-red-400"
-                                >
-                                  <X className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                              <div className="flex items-center justify-between mt-1 text-slate-400">
-                                <span>Qty: {item.qty} × ETB {item.price}</span>
-                                <span className="font-semibold text-emerald-400">ETB {item.qty * item.price}</span>
-                              </div>
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Calculations & Order Button */}
-                    <div className="mt-6 pt-4 border-t border-slate-800 text-xs space-y-1.5">
-                      <div className="flex justify-between text-slate-400">
-                        <span>Food & Beverage Subtotal</span>
-                        <span>ETB {dineSubtotal}</span>
-                      </div>
-                      <div className="flex justify-between text-slate-400">
-                        <span>Service Charge (10%)</span>
-                        <span>ETB {dineService}</span>
-                      </div>
-                      <div className="flex justify-between text-slate-400">
-                        <span>Statutory VAT (15%)</span>
-                        <span>ETB {dineVat}</span>
-                      </div>
-                      <div className="flex justify-between text-sm font-bold text-white pt-2 border-t border-slate-800">
-                        <span>Total Bill</span>
-                        <span className="text-emerald-400 font-extrabold">ETB {dineTotal}</span>
-                      </div>
-
-                      {dineCart.length > 0 ? (
-                        <button
-                          onClick={placeDineOrder}
-                          className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 font-bold text-white text-sm shadow-lg shadow-emerald-600/20 transition active:scale-95"
-                        >
-                          🚀 Send Order Directly to Kitchen
-                        </button>
-                      ) : (
-                        <div className="mt-4 py-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-xs text-slate-500">
-                          Select dishes from the menu to build your table order
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Mode: Kitchen (KDS) */}
-              {dineViewMode === 'kitchen' && (
-                <div className="p-6">
-                  <div className="flex flex-wrap items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-800">
-                    <div>
-                      <h3 className="font-bold text-white text-lg flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                        Live Kitchen Display Screen (KDS) — Head Chef Station
-                      </h3>
-                      <p className="text-xs text-slate-400">Orders placed by diners appear here instantly without tickets.</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          const newTicket = {
-                            id: `ORD-${Math.floor(200 + Math.random() * 800)}`,
-                            table: 'Table 8 (Lounge VIP)',
-                            items: 'Dry-Aged Wagyu Burger x2, Artisan Tej Cocktail x2',
-                            status: 'Cooking',
-                            time: 'Just now',
-                          };
-                          setDineOrders((prev) => [newTicket, ...prev]);
-                          showToast(`Simulated ticket #${newTicket.id} received in kitchen!`);
-                        }}
-                        className="px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold rounded-lg transition"
-                      >
-                        + Simulate Incoming Order
-                      </button>
-                      {dineOrders.length > 0 && (
-                        <button
-                          onClick={clearAllDineOrders}
-                          className="px-3 py-1.5 bg-slate-800 hover:bg-red-950/60 hover:text-red-300 text-xs font-medium rounded-lg border border-slate-700 transition"
-                        >
-                          Clear All Orders
-                        </button>
-                      )}
-                    </div>
-                  </div>
-
-                  {dineOrders.length === 0 ? (
-                    <div className="py-14 text-center bg-slate-950/60 rounded-xl border border-slate-800/80">
-                      <Utensils className="w-10 h-10 text-slate-600 mx-auto mb-3" />
-                      <h4 className="text-sm font-bold text-slate-300">Kitchen Display is Clean — No Pending Orders</h4>
-                      <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-                        All orders have been prepared and served! Click 'Customer Menu View' above to place an order or use '+ Simulate Incoming Order'.
-                      </p>
-                      <button
-                        onClick={() => setDineViewMode('customer')}
-                        className="mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white rounded-lg transition"
-                      >
-                        Go to Customer Menu
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {dineOrders.map((ord) => (
-                        <div key={ord.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
-                          <div>
-                            <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                              <span className="font-mono font-bold text-emerald-400">{ord.id}</span>
-                              <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded border bg-amber-500/10 text-amber-300 border-amber-500/20">
-                                  {ord.status}
-                                </span>
-                                <button
-                                  onClick={() => removeDineOrder(ord.id)}
-                                  className="text-slate-500 hover:text-red-400 p-1"
-                                  title="Dismiss order"
-                                >
-                                  <X className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                            </div>
-                            <div className="mt-2 text-xs font-semibold text-white">{ord.table}</div>
-                            <div className="mt-1 text-xs text-slate-300 bg-slate-900/60 p-2.5 rounded border border-slate-800/80">
-                              {ord.items}
-                            </div>
-                          </div>
-
-                          <div className="mt-4 flex items-center justify-between pt-2 border-t border-slate-800/80">
-                            <span className="text-[10px] text-slate-500">{ord.time}</span>
-                            <button
-                              onClick={() => removeDineOrder(ord.id)}
-                              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition flex items-center gap-1.5 shadow-md active:scale-95"
-                            >
-                              <Check className="w-3.5 h-3.5" /> Complete Order & Clear
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Mode: Bill & Telebirr QR */}
-              {dineViewMode === 'bill' && (
-                <div className="p-8 max-w-xl mx-auto text-center">
-                  <h3 className="text-xl font-black text-white">Instant Contactless Bill Settlement</h3>
-                  <p className="text-xs text-slate-400 mt-1">Diners scan the dynamic QR code using Telebirr or CBE Birr.</p>
-
-                  <div className="my-6 p-6 bg-white rounded-2xl w-60 h-60 mx-auto flex flex-col items-center justify-center shadow-xl">
-                    <QrCode className="w-36 h-36 text-slate-950" />
-                    <span className="text-[11px] font-black text-slate-900 mt-2">TELEBIRR SUPERAPP QR</span>
-                  </div>
-
-                  <div className="flex justify-center gap-3">
-                    <button
-                      onClick={() => {
-                        const receipt = {
-                          ref: `TEL-${Math.floor(100000 + Math.random() * 900000)}`,
-                          total: dineTotal > 0 ? dineTotal : 850,
-                          table: dineTable,
-                          date: new Date().toLocaleTimeString(),
-                        };
-                        setPaidReceipt(receipt);
-                        showToast(`Telebirr payment of ETB ${receipt.total} verified!`);
-                      }}
-                      className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 font-bold text-slate-950 text-xs shadow-md transition"
-                    >
-                      ✓ Simulate Successful Telebirr Pay
-                    </button>
-                    <button
-                      onClick={() => setDineViewMode('customer')}
-                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition"
-                    >
-                      Back to Table Menu
-                    </button>
-                  </div>
-
-                  {paidReceipt && (
-                    <div className="mt-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-left text-xs font-mono">
-                      <div className="flex justify-between border-b border-emerald-500/20 pb-1 text-emerald-300 font-bold">
-                        <span>WAZEMA FISCAL RECEIPT</span>
-                        <span>{paidReceipt.ref}</span>
-                      </div>
-                      <div className="mt-2 text-slate-300">Timestamp: {paidReceipt.date}</div>
-                      <div className="text-slate-300">Station: {paidReceipt.table}</div>
-                      <div className="text-emerald-400 font-bold mt-1">Paid: ETB {paidReceipt.total} via Telebirr QR</div>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
+          {/* TAB 1: DINE-QR SIMULATOR — FULL SUITE */}
+          {activeHubTab === 'dine-qr' && <DineQREnterpriseSuite />}
 
           {/* TAB 2: TPASS MATE UK DVSA SIMULATOR */}
           {activeHubTab === 'tpass-mate' && (
