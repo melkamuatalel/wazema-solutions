@@ -344,10 +344,6 @@ export default function App() {
               <Phone className="w-3.5 h-3.5" /> +251 95 386 8816
             </a>
             <span className="text-slate-600">|</span>
-            <a href="#live-demos" className="hover:text-emerald-300 font-medium flex items-center gap-1.5 transition text-emerald-400">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> ⚡ 7 Live Systems Lab
-            </a>
-            <span className="text-slate-600">|</span>
             <a href="#meeting" className="hover:text-white transition flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-emerald-400" /> Addis Ababa Meeting
             </a>
@@ -383,14 +379,8 @@ export default function App() {
           </div>
 
           {/* Nav Items */}
-          <div className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300">
+          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
             <a href="#systems" className="hover:text-emerald-400 transition">30 Delivered Systems</a>
-            <a
-              href="#live-demos"
-              className="px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-bold hover:bg-emerald-500 hover:text-slate-950 transition flex items-center gap-1.5 shadow-sm shadow-emerald-500/20"
-            >
-              <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" /> Live Systems Lab
-            </a>
             <a href="#testimonials" className="hover:text-emerald-400 transition">Client Verification</a>
             <a href="#meeting" className="hover:text-emerald-400 transition">Addis In-Person Meet</a>
           </div>
@@ -467,11 +457,11 @@ export default function App() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#live-demos"
+                href="#systems"
                 className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 font-black text-slate-950 flex items-center gap-2.5 shadow-xl shadow-emerald-500/25 transition transform hover:-translate-y-0.5"
               >
-                <Sparkles className="w-5 h-5 text-slate-950" />
-                <span>Launch Live Interactive Systems (7 Engines)</span>
+                <Layers className="w-5 h-5 text-slate-950" />
+                <span>Explore 30 Enterprise Systems</span>
               </a>
 
               <button
@@ -1610,18 +1600,12 @@ export default function App() {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="p-5 pt-0 flex items-center gap-2">
-                  <button
-                    onClick={() => setActiveDemoModal(item.demoType || item.id)}
-                    className="flex-1 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 border border-emerald-500/30 text-xs font-bold transition flex items-center justify-center gap-1.5"
-                  >
-                    <Sparkles className="w-3.5 h-3.5" /> Live Simulator
-                  </button>
+                <div className="p-5 pt-0">
                   <button
                     onClick={() => setSelectedProject(item)}
-                    className="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition flex items-center justify-center gap-1.5"
+                    className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-200 border border-slate-700 hover:border-emerald-500 text-xs font-semibold transition flex items-center justify-center gap-2 shadow-sm"
                   >
-                    <span>Full Specs</span>
+                    <span>View Specifications & Architecture</span>
                     <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                   </button>
                 </div>
@@ -2137,16 +2121,13 @@ export default function App() {
             </div>
 
             <div className="p-4 border-t border-slate-800 bg-slate-950 flex items-center justify-between">
-              <button
-                onClick={() => {
-                  const demo = selectedProject.demoType || selectedProject.id;
-                  setSelectedProject(null);
-                  setActiveDemoModal(demo);
-                }}
-                className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold flex items-center gap-2"
+              <a
+                href="#meeting"
+                onClick={() => setSelectedProject(null)}
+                className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold flex items-center gap-2 transition"
               >
-                <Sparkles className="w-4 h-4" /> Launch Interactive Simulator
-              </button>
+                <MapPin className="w-4 h-4" /> Book Consultation for this System
+              </a>
               <button
                 onClick={() => setSelectedProject(null)}
                 className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
