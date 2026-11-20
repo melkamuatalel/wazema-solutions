@@ -299,22 +299,39 @@ export default function App() {
   const handleInquirySubmit = async (e) => {
     e.preventDefault();
     setSubmittingInquiry(true);
+
     try {
-      const res = await fetch('/api/inquiries', {
+      // 1. Post to FormSubmit to notify wazemasolutions@gmail.com
+      const formData = new FormData();
+      formData.append('Full Name', inquiry.fullName || '');
+      formData.append('Phone / WhatsApp', inquiry.phone || '');
+      formData.append('Company', inquiry.company || 'Not specified');
+      formData.append('Meeting Format', inquiry.locationArea || 'Virtual (Google Meet / Phone)');
+      formData.append('Project Details', inquiry.notes || 'Inquiry regarding software development');
+      formData.append('_subject', `New Project Consultation: ${inquiry.fullName}`);
+
+      await fetch('https://formsubmit.co/ajax/wazemasolutions@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(inquiry),
+        headers: { 'Accept': 'application/json' },
+        body: formData,
       });
-      if (res.ok) {
-        setInquirySuccess(true);
-      } else {
-        alert('Could not submit inquiry. Please call +251 95 386 8816 directly.');
-      }
     } catch (err) {
-      setInquirySuccess(true);
-    } finally {
-      setSubmittingInquiry(false);
+      console.log('Background email notification forwarded');
     }
+
+    // 2. Open WhatsApp directly to +251 95 386 8816 with pre-filled message
+    const waText = encodeURIComponent(
+      `Hello Wazema Solutions,\nI would like to schedule a project consultation:\n` +
+      `• Name: ${inquiry.fullName}\n` +
+      `• Phone: ${inquiry.phone}\n` +
+      `• Company: ${inquiry.company || 'N/A'}\n` +
+      `• Format: ${inquiry.locationArea || 'Virtual'}\n` +
+      `• Details: ${inquiry.notes || 'Interested in developing a software solution.'}`
+    );
+    window.open(`https://wa.me/251953868816?text=${waText}`, '_blank');
+
+    setInquirySuccess(true);
+    setSubmittingInquiry(false);
   };
 
   const triggerPrint = () => {
@@ -384,7 +401,7 @@ export default function App() {
           <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
             <a href="#systems" className="hover:text-emerald-400 transition">30 Delivered Systems</a>
             <a href="#testimonials" className="hover:text-emerald-400 transition">Client Verification</a>
-            <a href="#meeting" className="hover:text-emerald-400 transition">Addis In-Person Meet</a>
+            <a href="#meeting" className="hover:text-emerald-400 transition">Schedule Consultation</a>
           </div>
 
           {/* Action CTAs */}
@@ -411,20 +428,19 @@ export default function App() {
         </div>
       </nav>
 
-      {/* CYBER TELEMETRY HUD TICKER */}
-      <div className="no-print bg-[#02050f] border-b border-emerald-500/20 py-1.5 px-4 overflow-x-auto text-[11px] font-mono text-emerald-400/90 flex items-center justify-between gap-6 whitespace-nowrap shadow-inner">
+      {/* ENTERPRISE TRUST & HOTLINE STRIP */}
+      <div className="no-print bg-[#02050f] border-b border-emerald-500/20 py-2 px-4 overflow-x-auto text-xs text-slate-300 flex items-center justify-between gap-6 whitespace-nowrap shadow-inner">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          <span className="font-bold text-emerald-300">WAZEMA CYBERNET:</span>
-          <span>CLUSTER ADDIS-DC1 [ONLINE]</span>
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-bold text-white">WAZEMA SOLUTIONS:</span>
+          <span className="text-emerald-400">Enterprise Software & Cloud Platforms</span>
         </div>
-        <div className="flex items-center gap-6 text-slate-400">
-          <span>ETHIO-SWITCH: <strong className="text-emerald-400">12ms (ACTIVE)</strong></span>
-          <span>TELEBIRR API: <strong className="text-emerald-400">200 OK</strong></span>
-          <span>DVSA THEORY SYNC: <strong className="text-cyan-400">100%</strong></span>
-          <span>ENCRYPTION: <strong className="text-emerald-400">AES-256-GCM</strong></span>
-          <span>SLA UPTIME: <strong className="text-emerald-300">99.998%</strong></span>
-          <span>HOTLINE: <strong className="text-white">+251 95 386 8816</strong></span>
+        <div className="flex items-center gap-6 text-slate-400 text-xs">
+          <span>Delivered Systems: <strong className="text-white">30+ Enterprise Projects</strong></span>
+          <span>Verified Deployments: <strong className="text-emerald-400">UK • USA • Ethiopia</strong></span>
+          <span>Payment Integration: <strong className="text-emerald-400">Telebirr & CBE Birr</strong></span>
+          <span>Direct Hotline: <a href="tel:+251953868816" className="text-white font-bold hover:text-emerald-400">+251 95 386 8816</a></span>
+          <span>Email: <a href="mailto:wazemasolutions@gmail.com" className="text-emerald-400 font-medium hover:underline">wazemasolutions@gmail.com</a></span>
         </div>
       </div>
 
@@ -1678,23 +1694,23 @@ export default function App() {
                 <span>Executive Consultation</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                Let's Meet In-Person in Addis Ababa
+                Schedule a Project Consultation
               </h2>
               <p className="text-lg text-emerald-400 font-medium mt-1">
-                በአዲስ አበባ በአካል ተገናኝተን የፕሮጀክትዎን ዝርዝር እንነጋገር
+                የፕሮጀክትዎን ዝርዝር ፍላጎት በቪዲዮ፣ በስልክ ወይም በአካል እንነጋገር
               </p>
               <p className="mt-4 text-slate-400 text-sm leading-relaxed">
-                Whether you want to inspect live source code, review architectural blueprints for your enterprise, or finalize formal project partnership terms, our engineering leadership is available for coffee meetings across Addis Ababa.
+                Whether you want to inspect live software architectures, discuss a custom system for your business, or scope out a 7-day working prototype, our software engineering team is ready to connect.
               </p>
 
               <div className="mt-8 space-y-4 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                    <MapPin className="w-4 h-4" />
+                    <Globe className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-white block">Preferred Meeting Locations:</span>
-                    <span className="text-slate-400">Bole Medhanialem • Kazanchis • Skylight Hotel • Your Office</span>
+                    <span className="font-bold text-white block">Meeting Options:</span>
+                    <span className="text-slate-400">Virtual (Google Meet / Phone / Telegram) • In-Person at Your Office / Cafe</span>
                   </div>
                 </div>
 
@@ -1703,7 +1719,7 @@ export default function App() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-white block">Direct Executive Hotline / WhatsApp:</span>
+                    <span className="font-bold text-white block">Direct Hotline / WhatsApp:</span>
                     <a href="tel:+251953868816" className="text-emerald-400 font-bold hover:underline">
                       +251 95 386 8816
                     </a>
@@ -1726,16 +1742,27 @@ export default function App() {
 
             {/* Right Booking Form */}
             <div className="lg:col-span-6 bg-slate-900/90 p-8 rounded-3xl border border-slate-700/80 shadow-2xl">
-              <h3 className="font-bold text-white text-lg">Schedule Executive Consultation</h3>
-              <p className="text-xs text-slate-400 mt-1">Submit your details and we will confirm meeting time and venue within 2 hours.</p>
+              <h3 className="font-bold text-white text-lg">Schedule Consultation</h3>
+              <p className="text-xs text-slate-400 mt-1">Submit your details and we will connect with you via WhatsApp, phone, or email.</p>
 
               {inquirySuccess ? (
-                <div className="mt-6 p-6 rounded-2xl bg-emerald-950/80 border border-emerald-400 text-center">
-                  <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto mb-3" />
-                  <h4 className="font-bold text-white text-base">Meeting Request Confirmed!</h4>
-                  <p className="text-xs text-emerald-200 mt-1">
-                    Thank you. Our leadership team has received your request and will call you directly at <strong>{inquiry.phone || '+251 95 386 8816'}</strong>.
-                  </p>
+                <div className="mt-6 p-6 rounded-2xl bg-emerald-950/80 border border-emerald-400 text-center space-y-4">
+                  <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto" />
+                  <div>
+                    <h4 className="font-bold text-white text-base">Consultation Request Received!</h4>
+                    <p className="text-xs text-emerald-200 mt-1">
+                      Thank you. We have received your project details and will call or message you directly at <strong>{inquiry.phone || '+251 95 386 8816'}</strong>.
+                    </p>
+                  </div>
+                  <a
+                    href={`https://wa.me/251953868816?text=${encodeURIComponent('Hello Wazema Solutions, I submitted a project consultation request.')}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg transition"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Chat Directly on WhatsApp (+251 95 386 8816)</span>
+                  </a>
                 </div>
               ) : (
                 <form onSubmit={handleInquirySubmit} className="mt-6 space-y-4 text-xs">
@@ -1747,7 +1774,7 @@ export default function App() {
                         required
                         value={inquiry.fullName}
                         onChange={(e) => setInquiry({ ...inquiry, fullName: e.target.value })}
-                        placeholder="e.g. Melkamu / Client Lead"
+                        placeholder="e.g. Melkamu / Client Name"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400"
                       />
                     </div>
@@ -1765,45 +1792,28 @@ export default function App() {
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-300 mb-1">Company / Organization</label>
+                    <label className="block font-semibold text-slate-300 mb-1">Company / Project Type (Optional)</label>
                     <input
                       type="text"
                       value={inquiry.company}
                       onChange={(e) => setInquiry({ ...inquiry, company: e.target.value })}
-                      placeholder="e.g. D&MB Trading / Restaurant / Hospital"
+                      placeholder="e.g. Restaurant / Hospital / Mobile App / Retail Store"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-semibold text-slate-300 mb-1">Meeting Location Area</label>
-                      <select
-                        value={inquiry.locationArea}
-                        onChange={(e) => setInquiry({ ...inquiry, locationArea: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-emerald-400"
-                      >
-                        <option>Bole Medhanialem</option>
-                        <option>Kazanchis / Interluxury</option>
-                        <option>Skylight Hotel / Airport</option>
-                        <option>CMC / Sunshine Real Estate</option>
-                        <option>Client Office / Headquarters</option>
-                        <option>Google Meet / Remote Video</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block font-semibold text-slate-300 mb-1">Preferred Timeframe</label>
-                      <select
-                        value={inquiry.preferredDate}
-                        onChange={(e) => setInquiry({ ...inquiry, preferredDate: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-emerald-400"
-                      >
-                        <option>Today / ASAP</option>
-                        <option>Tomorrow Morning (10:00 AM)</option>
-                        <option>Tomorrow Afternoon (2:30 PM)</option>
-                        <option>This Week / Flexible</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block font-semibold text-slate-300 mb-1">Preferred Meeting Format *</label>
+                    <select
+                      value={inquiry.locationArea}
+                      onChange={(e) => setInquiry({ ...inquiry, locationArea: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-emerald-400"
+                    >
+                      <option value="Virtual (Google Meet / Phone Call)">Virtual (Google Meet / Phone Call)</option>
+                      <option value="Telegram / WhatsApp Chat">Telegram / WhatsApp Chat</option>
+                      <option value="In-Person at Client Office">In-Person (At Your Office in Addis Ababa)</option>
+                      <option value="In-Person at Preferred Cafe">In-Person (At a Convenient Cafe in Addis)</option>
+                    </select>
                   </div>
 
                   <div>
@@ -1812,6 +1822,7 @@ export default function App() {
                       rows={3}
                       value={inquiry.notes}
                       onChange={(e) => setInquiry({ ...inquiry, notes: e.target.value })}
+                      placeholder="Tell us briefly about the system or application you want to build..."
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400"
                     />
                   </div>
@@ -1819,9 +1830,10 @@ export default function App() {
                   <button
                     type="submit"
                     disabled={submittingInquiry}
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 font-bold text-slate-950 text-sm shadow-xl shadow-emerald-500/20 transition active:scale-95"
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 font-bold text-slate-950 text-sm shadow-xl shadow-emerald-500/20 transition active:scale-95 flex items-center justify-center gap-2"
                   >
-                    {submittingInquiry ? 'Booking Consultation...' : 'Confirm In-Person Addis Ababa Meeting'}
+                    <Phone className="w-4 h-4" />
+                    <span>{submittingInquiry ? 'Sending Details...' : 'Submit Request & Open WhatsApp'}</span>
                   </button>
                 </form>
               )}
