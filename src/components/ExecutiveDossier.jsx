@@ -15,6 +15,7 @@ import {
   Server,
   Zap,
   Lock,
+  ExternalLink,
 } from 'lucide-react';
 
 export default function ExecutiveDossier({ portfolio, testimonials }) {
@@ -113,6 +114,30 @@ export default function ExecutiveDossier({ portfolio, testimonials }) {
               <div className="text-xl font-black text-slate-950">ISO & Statutory</div>
               <div className="text-[10px] text-slate-600">FinTech Switch & Gov ERP Ready</div>
             </div>
+          </div>
+
+          {/* Official Live Digital Customer Desk Callout Banner */}
+          <div className="mt-5 p-3.5 rounded-xl bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 text-white border-2 border-emerald-500/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-left w-full avoid-break">
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400">
+                  Official Live Customer Desk & System Hub
+                </span>
+              </div>
+              <p className="text-xs text-slate-200">
+                To explore live interactive systems, full blueprints, and verified client testimonials:
+              </p>
+            </div>
+            <a
+              href="https://wazema-solutions.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-md shrink-0 transition"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>https://wazema-solutions.vercel.app/</span>
+            </a>
           </div>
         </div>
       </div>
