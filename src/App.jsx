@@ -392,19 +392,21 @@ export default function App() {
             <button
               onClick={() => setIsDossierMode(true)}
               className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950/70 hover:bg-emerald-900/80 text-xs font-semibold text-emerald-300 border border-emerald-500/40 transition"
-              title="Preview & Download Official Corporate PDF Dossier"
+              title="Preview Official Corporate Capability Dossier"
             >
               <FileText className="w-4 h-4 text-emerald-400" />
-              <span className="hidden sm:inline">Preview PDF Dossier</span>
+              <span className="hidden sm:inline">Executive Dossier</span>
             </button>
 
-            <button
-              onClick={triggerPrint}
+            <a
+              href="/Wazema_Solutions_Corporate_Profile_2026.pdf"
+              download="Wazema_Solutions_Corporate_Profile_2026.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-xs font-bold text-white shadow-lg shadow-emerald-600/20 transition active:scale-95"
+              title="Download Official 4-Page PDF Prospectus"
             >
-              <Printer className="w-4 h-4" />
-              <span>Print / PDF</span>
-            </button>
+              <Download className="w-4 h-4" />
+              <span>Download PDF</span>
+            </a>
           </div>
         </div>
       </nav>
@@ -2163,16 +2165,24 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <a
+                  href="/Wazema_Solutions_Corporate_Profile_2026.pdf"
+                  download="Wazema_Solutions_Corporate_Profile_2026.pdf"
+                  className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg transition active:scale-95"
+                >
+                  <Download className="w-4 h-4" /> Download Official PDF (4 Pages)
+                </a>
                 <button
                   onClick={triggerPrint}
-                  className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg transition"
+                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition"
+                  title="Print to physical printer"
                 >
-                  <Download className="w-4 h-4" /> Save as Official PDF
+                  <Printer className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setIsDossierMode(false)}
-                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
                 >
                   <X className="w-5 h-5" />
                 </button>
