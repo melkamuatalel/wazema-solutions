@@ -42,6 +42,7 @@ import {
   Lock,
 } from 'lucide-react';
 import { WAZEMA_PORTFOLIO, CLIENT_TESTIMONIALS } from '../server/data.js';
+import ExecutiveDossier from './components/ExecutiveDossier.jsx';
 
 export default function App() {
   const [portfolio, setPortfolio] = useState(WAZEMA_PORTFOLIO);
@@ -321,7 +322,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030611] text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+    <>
+      <div id="app-screen-root" className="no-print min-h-screen bg-[#030611] text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
       {/* Toast Notification */}
       {dineToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-emerald-400 animate-bounce">
@@ -2178,107 +2180,8 @@ export default function App() {
             </div>
 
             {/* Dossier Document Content */}
-            <div className="p-8 sm:p-12 overflow-y-auto space-y-10 text-slate-900 font-sans">
-              {/* Cover Header */}
-              <div className="border-b-4 border-emerald-600 pb-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <img src="/images/wazema_logo.jpg" alt="Wazema Logo" className="w-full h-full object-cover" />
-                </div>
-                <h1 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
-                  WAZEMA SOLUTIONS PLC
-                </h1>
-                <p className="text-base sm:text-lg font-bold text-emerald-700 mt-1">
-                  ዋዜማ ሶሉሽንስ — የቴክኖሎጂ እና የሶፍትዌር ኢንጂነሪንግ ኩባንያ
-                </p>
-                <div className="mt-4 flex flex-wrap justify-center gap-3 text-xs text-slate-600 font-medium">
-                  <span className="px-2.5 py-1 rounded bg-slate-100 border border-slate-300">Headquarters: Addis Ababa, Ethiopia</span>
-                  <span className="px-2.5 py-1 rounded bg-slate-100 border border-slate-300">Hotline: +251 95 386 8816</span>
-                  <span className="px-2.5 py-1 rounded bg-slate-100 border border-slate-300">Email: contact@wazemasolutions.com</span>
-                </div>
-              </div>
-
-              {/* Executive Summary */}
-              <div>
-                <h2 className="text-xl font-bold text-slate-950 border-b-2 border-slate-300 pb-2 mb-3">
-                  1. Executive Capability Statement
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">
-                  Wazema Solutions PLC is an elite software engineering, mobile development, and cloud systems consultancy headquartered in Addis Ababa, Ethiopia. We specialize in architecting high-concurrency systems, cross-platform mobile apps for international markets (including official DVSA revision suites in the UK), statutory government enterprise resource planning (ERP) suites, and contactless restaurant management ecosystems.
-                </p>
-              </div>
-
-              {/* Complete 30 Systems Index */}
-              <div>
-                <h2 className="text-xl font-bold text-slate-950 border-b-2 border-slate-300 pb-2 mb-4">
-                  2. Complete Index of 30 Delivered Enterprise Systems
-                </h2>
-                <table className="dossier-table w-full text-left border-collapse text-[9px]">
-                  <thead>
-                    <tr className="bg-slate-900 text-white">
-                      <th className="py-2 px-2">#</th>
-                      <th className="py-2 px-2">System Title & Scope</th>
-                      <th className="py-2 px-2">Client Organization</th>
-                      <th className="py-2 px-2">Category</th>
-                      <th className="py-2 px-2">Key Metric / KPI</th>
-                      <th className="py-2 px-2">Core Tech Stack</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {portfolio.map((item, idx) => (
-                      <tr key={item.id} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                        <td className="py-1.5 px-2 font-mono font-bold text-slate-500">{idx + 1}</td>
-                        <td className="py-1.5 px-2 font-bold text-slate-900">{item.title}</td>
-                        <td className="py-1.5 px-2 text-slate-700">{item.client}</td>
-                        <td className="py-1.5 px-2 uppercase font-semibold text-emerald-800">{item.category}</td>
-                        <td className="py-1.5 px-2 text-emerald-700 font-bold">{item.impact}</td>
-                        <td className="py-1.5 px-2 text-slate-600 font-mono">{item.techStack.slice(0, 2).join(', ')}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Testimonials */}
-              <div className="page-break mt-10">
-                <h2 className="text-xl font-bold text-slate-950 border-b-2 border-slate-300 pb-2 mb-4">
-                  3. Verified Client References & Testimonials
-                </h2>
-                <div className="space-y-4">
-                  {testimonials.map((t, idx) => (
-                    <div key={idx} className="dossier-card border border-slate-300 p-3 rounded-lg bg-slate-50">
-                      <div className="flex justify-between items-center">
-                        <div className="font-bold text-slate-900 text-xs">{t.organization}</div>
-                        <span>{t.flag}</span>
-                      </div>
-                      <div className="text-emerald-700 text-[10px] font-semibold">{t.role}</div>
-                      <p className="text-[10px] text-slate-700 italic mt-1.5">"{t.quote}"</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Signoff block */}
-              <div className="page-break mt-10">
-                <h2 className="text-xl font-bold text-slate-950 border-b-2 border-slate-300 pb-2 mb-4">
-                  4. Engagement & Partnership Execution Block
-                </h2>
-                <p className="text-[11px] text-slate-600 mb-6">
-                  This document certifies that Wazema Solutions PLC retains full architectural copyright, engineering credentials, and deployment ownership of the software systems detailed herein. For immediate executive coordination: <strong>+251 95 386 8816</strong>.
-                </p>
-
-                <div className="grid grid-cols-2 gap-12 mt-12 text-xs">
-                  <div className="border-t border-slate-400 pt-3">
-                    <div className="font-bold text-slate-900">For: Wazema Solutions Executive Leadership</div>
-                    <div className="text-slate-500 mt-1">Authorized Representative Signature & Official Seal</div>
-                    <div className="mt-8 text-slate-400 font-mono">Date: ________________________</div>
-                  </div>
-                  <div className="border-t border-slate-400 pt-3">
-                    <div className="font-bold text-slate-900">For: Client Partner / Representative in Addis Ababa</div>
-                    <div className="text-slate-500 mt-1">Acceptance of Credentials & Meeting Minutes</div>
-                    <div className="mt-8 text-slate-400 font-mono">Date: ________________________</div>
-                  </div>
-                </div>
-              </div>
+            <div className="overflow-y-auto max-h-[calc(95vh-75px)] bg-slate-100 p-2 sm:p-6">
+              <ExecutiveDossier portfolio={portfolio} testimonials={testimonials} />
             </div>
           </div>
         </div>
@@ -2315,5 +2218,13 @@ export default function App() {
         </div>
       </footer>
     </div>
-  );
+
+    {/* ======================================================== */}
+    {/* PRINT-ONLY DOSSIER ROOT (EXPORT TO PDF / PRINT DIALOG) */}
+    {/* ======================================================== */}
+    <div className="printable-dossier-root hidden print:block bg-white text-slate-900">
+      <ExecutiveDossier portfolio={portfolio} testimonials={testimonials} />
+    </div>
+  </>
+);
 }
